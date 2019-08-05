@@ -2,7 +2,10 @@
 //
 
 #include "stdafx.h"
+#include "Renderer.h"
+#include "Timer.h"
 #include "Dungreed모작.h"
+
 
 #define MAX_LOADSTRING 100
 
@@ -17,6 +20,21 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+CRasterizer screen;
+CBitMap		bitmap;
+CBitMap		bitmap2;
+Renderer    render;
+
+//전역변수
+HWND g_hWnd;
+HDC m_hdc;
+Bitmap*	g_image;
+
+//타이머
+CTimer mTimer;
+
+void OnIdle();
+void CalculateFrameStats();
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
@@ -25,7 +43,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+
     // TODO: 여기에 코드를 입력합니다.
+	GdiplusStartupInput gdiplusStartupInput;
+	ULONG_PTR           gdiplusToken;
+	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -37,21 +59,29 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
+	HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_DUNGREED));
+	MSG msg;
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_DUNGREED));
+	mTimer.Reset();
 
-    MSG msg;
+	while (true)
+	{
+		::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
+		const BOOL bIsTranslateMessage = TranslateAccelerator(msg.hwnd, hAccelTable, &msg);
+		if (!bIsTranslateMessage)
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		mTimer.Tick();
+		CalculateFrameStats();
+		OnIdle();
+		if (msg.message == WM_QUIT)
+			break;
 
-    // 기본 메시지 루프입니다.
-    while (GetMessage(&msg, nullptr, 0, 0))
-    {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-    }
-
+	}
+   
+	GdiplusShutdown(gdiplusToken);
     return (int) msg.wParam;
 }
 
@@ -98,16 +128,31 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
-
+      CW_USEDEFAULT, 0, WINCX,WINCY, nullptr, nullptr, hInstance, nullptr);
+   
    if (!hWnd)
    {
       return FALSE;
    }
+   g_hWnd = hWnd;
+   m_hdc = GetDC(hWnd);
+   RECT clientRect;
+
+   ::GetClientRect(hWnd, &clientRect);
+   int iWidth = clientRect.right - clientRect.left + 1;
+   int iHeight = clientRect.bottom - clientRect.top + 1;
+   screen.CreateDIB(m_hdc, iWidth, iHeight);
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   //그림파일들
+   bitmap.ReadBitMap("..//texture//1.bmp");
+   bitmap2.ReadBitMap("..//texture//800x600.bmp");
+   g_image = new Bitmap(L"..//texture//1.bmp");
+   render.SetRasterizer(&screen);
+   render.SetColorMask(mRGB(1.f, 0.f, 1.f));
+   
    return TRUE;
 }
 
@@ -125,23 +170,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
-    case WM_COMMAND:
-        {
-            int wmId = LOWORD(wParam);
-            // 메뉴 선택을 구문 분석합니다.
-            switch (wmId)
-            {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-                DestroyWindow(hWnd);
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
-        }
-        break;
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
@@ -177,4 +205,47 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     }
     return (INT_PTR)FALSE;
+}
+
+void OnIdle()
+{
+	screen.ClearScreen();
+	/*screen.SetPixel(100, 100, mRGB(0.5f, 0.5f, 0.5f));
+	screen.SetPixel(100, 101, mRGB(1.f,0,0));*/
+	render.DrawBitMap(0,0, &bitmap2);
+
+	Vertex p1(CVector2(200.f, 200.0f), CVector2(0.f,0.f), mRGB(1.f, 0.f, 0.f));
+	Vertex p2(CVector2(200.f, 350.0f), CVector2(0.f,1.f), mRGB(0.f, 1.f, 0.f));
+	Vertex p3(CVector2(400.f, 350.0f), CVector2(1.f,1.f), mRGB(0.f, 0.f, 1.f));
+	Vertex p4(CVector2(400.f, 200.0f), CVector2(1.f,0.f), mRGB(0.f, 0.f, 1.f));
+
+	//render.DrawTriangleBarycentric(p1, p2, p3);
+	render.DrawTriangleBarycentric(p1, p2, p3, &bitmap);
+	render.DrawTriangleBarycentric(p3, p4, p1, &bitmap);
+
+	render.DrawBitMap(100, 100, &bitmap);
+	//render.DrawTriangleBarycentric(p1, p2, p3, g_image);
+	//render.DrawTriangleBarycentric(p3, p4, p1, g_image);
+	screen.Present(&m_hdc);
+}
+
+void CalculateFrameStats()
+{
+	static int frameCnt = 0;
+	static float timeElapsed = 0.0f;
+
+	frameCnt++;
+
+	if ((mTimer.TotalTIme() - timeElapsed) >= 1.0f)
+	{
+		float fps = (float)frameCnt; // fps = frameCnt / 1
+		float mspf = 1000.0f / fps;
+
+		TCHAR buffer[100];
+		swprintf_s(buffer, TEXT("%s FPS : %f"), szTitle, fps);
+		SetWindowText(g_hWnd, buffer);
+		// Reset for next average.
+		frameCnt = 0;
+		timeElapsed += 1.0f;
+	}
 }
