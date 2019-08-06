@@ -1,0 +1,25 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Dungreed모작.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  stdafx.cpp
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\vector2.h(27): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\matrix2d.h(115): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Vector2.cpp
+  Timer.cpp
+  Renderer.cpp
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\renderer.cpp(72): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\renderer.cpp(74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\renderer.cpp(112): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\renderer.cpp(114): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\renderer.cpp(163): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\renderer.cpp(165): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\github\dungreed-imitation\dungreed\dungreed\renderer.cpp(178): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Rasterizer.cpp
+  Player.cpp
+  ObjectManager.cpp
+  MainGame.cpp
+  ImageManager.cpp
+  GameObject.cpp
+  Dungreed.cpp
+  BitMap.cpp
+  코드를 생성하고 있습니다...
+  Dungreed.vcxproj -> C:\Users\JBS\Documents\GitHub\Dungreed-Imitation\Dungreed\Debug\Dungreed.exe
+  Dungreed.vcxproj -> C:\Users\JBS\Documents\GitHub\Dungreed-Imitation\Dungreed\Debug\Dungreed.pdb (Full PDB)
