@@ -215,9 +215,9 @@ void OnIdle()
 	render.DrawBitMap(0,0, &bitmap2);
 
 	Vertex p1(CVector2(200.f, 200.0f), CVector2(0.f,0.f), mRGB(1.f, 0.f, 0.f));
-	Vertex p2(CVector2(200.f, 350.0f), CVector2(0.f,1.f), mRGB(0.f, 1.f, 0.f));
-	Vertex p3(CVector2(400.f, 350.0f), CVector2(1.f,1.f), mRGB(0.f, 0.f, 1.f));
-	Vertex p4(CVector2(400.f, 200.0f), CVector2(1.f,0.f), mRGB(0.f, 0.f, 1.f));
+	Vertex p2(CVector2(200.f, 234.0f), CVector2(0.f,1.f), mRGB(0.f, 1.f, 0.f));
+	Vertex p3(CVector2(242.f, 234.0f), CVector2(1.f,1.f), mRGB(0.f, 0.f, 1.f));
+	Vertex p4(CVector2(242.f, 200.0f), CVector2(1.f,0.f), mRGB(0.f, 0.f, 1.f));
 
 	//render.DrawTriangleBarycentric(p1, p2, p3);
 	render.DrawTriangleBarycentric(p1, p2, p3, &bitmap);

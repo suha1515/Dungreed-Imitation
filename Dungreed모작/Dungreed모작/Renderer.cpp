@@ -112,8 +112,10 @@ void Renderer::DrawTriangleBarycentric(Vertex p1, Vertex p2, Vertex p3,CBitMap *
 			if ((w0 >= 0 && w1 >= 0 && w2 >= 0))
 			{
 				CVector2 texcoord = p1.tex*w0 + p2.tex*w1 + p3.tex*w2;
-				int u= int((bitmap->GetWidth())*texcoord.x );
-				int v= int((bitmap->GetHeight())*texcoord.y);
+				//일단.. int와 float 사이의 연산때문에 barycentric 의 무게중심값은 소수이므로..
+				// 패딩값이 소수점 연산에의해 잘 적용이 안된다. 그래서 양끝라인이 출력이 안되는 현상 발견.. 그래서 0.1f 정도 빼줌..
+				int u= int((bitmap->GetWidth()-0.1f)*texcoord.x );
+				int v= int((bitmap->GetHeight()-0.1f)-(bitmap->GetHeight())*texcoord.y);
 				//(x*PIXEL_SIZE) + (y*(width*PIXEL_SIZE)) + (padding*y);
 				int index = (u*PIXEL_SIZE) + (v*(bitmap->GetWidth()*PIXEL_SIZE)) + (bitmap->GetPadding()*v);
 				uint32_t color = bitmap->ToUInt32(index);
@@ -153,7 +155,11 @@ void Renderer::DrawTriangleBarycentric(Vertex p1, Vertex p2, Vertex p3, Bitmap *
 				CVector2 texcoord = p1.tex*w0 + p2.tex*w1 + p3.tex*w2;
 				Color color;
 				bitmap->GetPixel(texcoord.x*bitmap->GetWidth(), texcoord.y*bitmap->GetHeight(), &color);
-				m_Rasterizer->SetPixel(_p.x, _p.y, color);
+				if (color.GetValue() != Gdiplus::Color::Magenta)
+				{
+					m_Rasterizer->SetPixel(_p.x, _p.y, color);
+				}
+				
 			}
 		}
 	}
