@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="97.Manager">
+      <UniqueIdentifier>{1926a566-0277-4a99-8424-7eecb70a8c1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject">
+      <UniqueIdentifier>{f6f7f382-794c-445d-b9f8-1312929ea7ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Headers">
+      <UniqueIdentifier>{d217b5a1-6fcc-4394-9d8b-499278e3760e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Draw">
+      <UniqueIdentifier>{4c8ab49a-0552-4805-885f-54932f9583b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Draw\01.Renderer">
+      <UniqueIdentifier>{92405f0f-08d6-49eb-982b-1e31e3fdd9ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Draw\00.Rasterizer">
+      <UniqueIdentifier>{a5f0868c-6b7c-4bf0-b3b4-c7a48a0aca6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.MainGame">
+      <UniqueIdentifier>{bd6e4879-bb09-4ec4-9ab1-590e1461d28a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Draw\02.Bitmap">
+      <UniqueIdentifier>{a2351900-f609-4b5a-b138-34a7b7c6333a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Math">
+      <UniqueIdentifier>{2f679119-a6a8-4bae-b697-fa2048e85b91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Math\00.Vector">
+      <UniqueIdentifier>{c7e70d07-8e30-456f-a09e-bd94d71ebb17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Math\01.Matrix">
+      <UniqueIdentifier>{642cc3ba-421c-4119-8f96-1b1f31c86103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\00.BmpMgr">
+      <UniqueIdentifier>{68b763c7-6fc9-43d1-bdac-aae47339a2ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\01.ObjectMgr">
+      <UniqueIdentifier>{32bc6cec-ded2-4991-a50e-68aa8c9fedeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="95.Timer">
+      <UniqueIdentifier>{c8d2510d-53b0-4c33-a723-80af159164b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\00.Player">
+      <UniqueIdentifier>{83daf7b7-b05a-49fd-8907-a653118b99ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\01.Monster">
+      <UniqueIdentifier>{5f8dd7db-0899-44f2-abc4-cb7dd7172139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\02.KeyMgr">
+      <UniqueIdentifier>{60095038-a657-4987-b376-a41f40de2c17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\02.Mouse">
+      <UniqueIdentifier>{40f41628-33d9-4caa-bea9-90585ce813da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\03.AnimationMgr">
+      <UniqueIdentifier>{2f93ba24-038b-4ed4-8dd1-666fe9096a83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Animator">
+      <UniqueIdentifier>{a30148c2-fc65-4e4f-94a9-5421618d883b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Dungreed-Imitation.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Typedef.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RGB.h">
+      <Filter>98.Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="BitMap.h">
+      <Filter>98.Draw\02.Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="Rasterizer.h">
+      <Filter>98.Draw\00.Rasterizer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>98.Draw\01.Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>96.Math\00.Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2D.h">
+      <Filter>96.Math\01.Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>97.Manager\01.ObjectMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>95.Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>01.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>01.GameObject\00.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>00.MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>97.Manager\00.BmpMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenCoordinate.h">
+      <Filter>96.Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3D.h">
+      <Filter>96.Math\01.Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>97.Manager\02.KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>01.GameObject\02.Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimManager.h">
+      <Filter>97.Manager\03.AnimationMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>02.Animator</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Dungreed-Imitation.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BitMap.cpp">
+      <Filter>98.Draw\02.Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="Rasterizer.cpp">
+      <Filter>98.Draw\00.Rasterizer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>98.Draw\01.Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>96.Math\00.Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>97.Manager\01.ObjectMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>95.Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>01.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>01.GameObject\00.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>00.MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>97.Manager\00.BmpMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3D.cpp">
+      <Filter>96.Math\01.Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>97.Manager\02.KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>01.GameObject\02.Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimManager.cpp">
+      <Filter>97.Manager\03.AnimationMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>02.Animator</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Dungreed-Imitation.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Dungreed-Imitation.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
