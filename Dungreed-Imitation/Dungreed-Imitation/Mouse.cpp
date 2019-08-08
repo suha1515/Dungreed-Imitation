@@ -35,6 +35,7 @@ void Mouse::Render(Renderer* render)
 {
 	render->SetVertexBuffer(m_tInfo.copy_vertex);
 	render->SetTexture(ImageManager::GetInstance()->GetBitMap(L"¸¶¿ì½º"));
+	//Ellipse(g_hDC, m_tInfo.pos.x - m_tInfo.fCX*0.5f, m_tInfo.pos.y - m_tInfo.fCY*0.5f, m_tInfo.pos.x + m_tInfo.fCX*0.5f, m_tInfo.pos.y + m_tInfo.fCY*0.5f);
 	render->DrawOnCanvas();
 }
 
@@ -50,9 +51,8 @@ void Mouse::Move()
 	ScreenToClient(g_hWnd, &pt);
 
 	m_tInfo.pos.x = float(pt.x) - WINCX/2.0f;
-	m_tInfo.pos.y = float(pt.y) - WINCY/2.0f;
-
-	m_Translation.SetTranslation(m_tInfo.pos.x, -m_tInfo.pos.y);
+	m_tInfo.pos.y = -(float(pt.y) - WINCY/2.0f);
+	m_Translation.SetTranslation(m_tInfo.pos.x, m_tInfo.pos.y);
 	Matrix3D transform = (m_Translation*m_Rotation*m_Scale);
 	for (int i = 0; i < 4; ++i)
 	{

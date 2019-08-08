@@ -73,6 +73,27 @@
     <Filter Include="02.Animator">
       <UniqueIdentifier>{a30148c2-fc65-4e4f-94a9-5421618d883b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.GameObject\03.Item">
+      <UniqueIdentifier>{599e0208-c3ea-4535-b846-71aeb6b164f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.GameObject\03.Item\00.Weapon">
+      <UniqueIdentifier>{10ff5a4d-df6b-4cc3-b24b-9dc6d7602a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\04.SceneMgr">
+      <UniqueIdentifier>{7cb7d85e-a545-44c2-85b4-365a1996338f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\04.SceneMgr\00.Scene">
+      <UniqueIdentifier>{eb553845-a668-442b-9c7a-0a0b91ff68d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\04.SceneMgr\00.Scene\01.Title">
+      <UniqueIdentifier>{5c4e8b1d-37df-4868-b3a5-c1caa1bff7dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Manager\04.SceneMgr\00.Scene\02.Edit">
+      <UniqueIdentifier>{5cfd922a-7d82-4e84-824b-91dbd5486069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Draw\03.Utility">
+      <UniqueIdentifier>{c331b80d-bb10-4598-9c43-4504b06a1ef2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -162,6 +183,30 @@
     <ClInclude Include="Animator.h">
       <Filter>02.Animator</Filter>
     </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>01.GameObject\03.Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>01.GameObject\03.Item\00.Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>97.Manager\04.SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>97.Manager\04.SceneMgr\00.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>97.Manager\04.SceneMgr\00.Scene\01.Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Edit.h">
+      <Filter>97.Manager\04.SceneMgr\00.Scene\02.Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>96.Math</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawUtil.h">
+      <Filter>98.Draw\03.Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -214,6 +259,27 @@
     </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>02.Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>01.GameObject\03.Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>01.GameObject\03.Item\00.Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>97.Manager\04.SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>97.Manager\04.SceneMgr\00.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>97.Manager\04.SceneMgr\00.Scene\01.Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Edit.cpp">
+      <Filter>97.Manager\04.SceneMgr\00.Scene\02.Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawUtil.cpp">
+      <Filter>98.Draw\03.Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

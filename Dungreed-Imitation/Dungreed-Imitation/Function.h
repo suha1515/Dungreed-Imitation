@@ -18,3 +18,11 @@ void SafeDelete_Array(T& ptr)
 		ptr = nullptr;
 	}
 }
+
+inline float GetAngle(const Vector2& pStart,const Vector2& pEnd)
+{
+	float dx = pEnd.x - pStart.x;
+	float dy = pEnd.y - pStart.y;
+
+	return RadianToDegree(atan2f(dy, dx));
+}

@@ -38,31 +38,35 @@ using namespace std;
 
 
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.
+
+//수학헤더
+#include "Math.h"
+#include "Vector2.h"
+#include "Matrix2D.h"
+#include "Matrix3D.h"
+#include "ScreenCoordinate.h"
+
 #include "Define.h"
 #include "Enum.h"
 #include "Function.h"
 #include "Extern.h"
 #include "Typedef.h"
+
 #include "RGB.h"
 #include "BitMap.h"
-
-//수학헤더
-#include "Vector2.h"
-#include "Matrix2D.h"
-#include "Matrix3D.h"
-#include"ScreenCoordinate.h"
 
 #include"Struct.h"
 #include"Rasterizer.h"
 #include"Renderer.h"
-
 #include "Animator.h"
+#include "DrawUtil.h"
 
 
 //매니저 헤더
 #include "ObjectManager.h"
 #include "ImageManager.h"
 #include "KeyManager.h"
+#include "SceneManager.h"
 
 #include "vld.h"
 

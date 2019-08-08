@@ -95,7 +95,7 @@ void BitMap::ReadBitMap(const wstring& path)
 
 uint32_t BitMap::ToUInt32(int index) const
 {
-	if (index < size)
+	if (index <= size)
 	{
 		uint32_t r = (uint32_t)image[index + 2];
 		uint32_t g = (uint32_t)image[index + 1];

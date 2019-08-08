@@ -13,15 +13,44 @@ Animator::~Animator()
 
 void Animator::Initialize()
 {
-	animStart = 0;
-	animEnd = 0;
+	animStartX = 0;
+	animStartY = 0;
+	animEndX = 0;
+	animEndY = 0;
 	animTime = 0.0f;
+
+	m_AnimSpeed = 0.0f;
+	m_AnimType = ANIMATION_ONCE;
+	m_ClipName = L"";
+}
+void Animator::Release()
+{
 }
 void Animator::SetInfo(int heightCount, int widthCount)
 {
-	animEnd = widthCount;
+	animEndX = widthCount;
+	animEndY = heightCount;
 	animXGap = 1.0f / widthCount;
 	animYGap = 1.0f / heightCount;
+}
+void Animator::SetClip(const wstring & clipName, float speed, ANIMATION_TYPE type)
+{
+	Initialize();
+	m_AnimSpeed = speed;
+	m_AnimType = type;
+	m_ClipName = clipName;
+}
+void Animator::SetClipName(const wstring & clipName)
+{
+	m_ClipName = clipName;
+}
+void Animator::SetSpeed(float speed)
+{
+	m_AnimSpeed = speed;
+}
+void Animator::SetType(ANIMATION_TYPE type)
+{
+	m_AnimType = type;
 }
 void Animator::MakeClip(const wstring&  imgName,int sizeX,int sizeY)
 {
@@ -40,50 +69,58 @@ void Animator::MakeClip(const wstring&  imgName,int sizeX,int sizeY)
 	m_Clips.insert({ imgName,info});
 }
 
-void Animator::PlayAnim(Renderer * render, const wstring & clipName,Vertex* vertex, ANIMATION_TYPE type, float speed)
+bool Animator::PlayAnim(Renderer * render,Vertex* vertex)
 {
-	ANIM_INFO info = m_Clips.at(clipName);
+	ANIM_INFO info = m_Clips.at(m_ClipName);
 		//애니메이션 재생 구간
-		switch (type)
+		switch (m_AnimType)
 		{
 		case ANIMATION_ONCE:
 			SetInfo(info.heightCount,info.widthCount);
-			vertex[0].tex = Vector2(0.0f, 0.0f) + Vector2(0.2f*animStart, 0.f);
-			vertex[1].tex = Vector2(0.0f, 1.0f) + Vector2(0.2f*animStart, 0.f);
-			vertex[2].tex = Vector2(0.2f, 1.0f) + Vector2(0.2f*animStart, 0.f);
-			vertex[3].tex = Vector2(0.2f, 0.0f) + Vector2(0.2f*animStart, 0.f);
-			if (animStart < animEnd)
+			vertex[0].tex = Vector2(0.0f,		 0.0f)	+ Vector2(animXGap*animStartX, animYGap*animStartY);
+			vertex[1].tex = Vector2(0.0f,	 animYGap)	+ Vector2(animXGap*animStartX, animYGap*animStartY);
+			vertex[2].tex = Vector2(animXGap,animYGap)	+ Vector2(animXGap*animStartX, animYGap*animStartY);
+			vertex[3].tex = Vector2(animXGap,	 0.0f)	+ Vector2(animXGap*animStartX, animYGap*animStartY);
+
+			if (animStartX > animEndX)
 			{
-				if (animTime >= speed)
+				//한번만 재생하니 false 반환
+				return false;
+			}
+			else
+			{
+				if (animTime >= m_AnimSpeed)
 				{
-					animStart++;
+					animStartX++;
 					animTime -= animTime;
 				}
 				else
 					animTime += DELTA_TIME*100.f;
 			}
-			render->SetTexture(ImageManager::GetInstance()->GetBitMap(clipName));
-
+			render->SetTexture(ImageManager::GetInstance()->GetBitMap(m_ClipName));
+			return true;
 			break;
 		case ANIMATION_LOOP:
 			SetInfo(info.heightCount, info.widthCount);
-			vertex[0].tex = Vector2(0.0f, 0.0f) + Vector2(0.2f*animStart, 0.f);
-			vertex[1].tex = Vector2(0.0f, 1.0f) + Vector2(0.2f*animStart, 0.f);
-			vertex[2].tex = Vector2(0.2f, 1.0f) + Vector2(0.2f*animStart, 0.f);
-			vertex[3].tex = Vector2(0.2f, 0.0f) + Vector2(0.2f*animStart, 0.f);
-			if (animStart < animEnd)
+			vertex[0].tex = Vector2(0.0f, 0.0f) + Vector2(animXGap*animStartX, animYGap*animStartY);
+			vertex[1].tex = Vector2(0.0f, animYGap) + Vector2(animXGap*animStartX, animYGap*animStartY);
+			vertex[2].tex = Vector2(animXGap, animYGap) + Vector2(animXGap*animStartX, animYGap*animStartY);
+			vertex[3].tex = Vector2(animXGap, 0.0f) + Vector2(animXGap*animStartX, animYGap*animStartY);
+			if (animStartX < animEndX)
 			{
-				if (animTime >= speed)
+				if (animTime >= m_AnimSpeed)
 				{
-					animStart++;
+					animStartX++;
 					animTime -= animTime;
 				}
 				else
 					animTime += DELTA_TIME*100.f;
 			}
 			else
-				animStart = 0;
-			render->SetTexture(ImageManager::GetInstance()->GetBitMap(clipName));
+				animStartX = 0;
+			render->SetTexture(ImageManager::GetInstance()->GetBitMap(m_ClipName));
+			//루프이니 계속 반환
+			return true; 
 			break;
 		case ANIMATION_END:
 			break;

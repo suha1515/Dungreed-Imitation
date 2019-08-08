@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Rasterizer.h"
 
-
+HDC BackDC;
 Rasterizer::Rasterizer()
 {
 }
@@ -18,6 +18,7 @@ void Rasterizer::CreateDIB(HDC hdc, int width, int heigth)
 	m_iHeight = heigth;
 
 	m_hDC = CreateCompatibleDC(hdc);
+	BackDC = m_hDC;
 
 	m_bitInfo.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 	m_bitInfo.bmiHeader.biWidth = m_iWidth;

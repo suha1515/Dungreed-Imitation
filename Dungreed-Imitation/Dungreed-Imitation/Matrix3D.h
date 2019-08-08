@@ -44,6 +44,7 @@ public:
 	}
 	void SetRotation(float theta)
 	{
+		theta = DegreeToRadian(theta);
 		SetIdentity();
 		_11 = cosf(theta); _12 = -sinf(theta);
 		_21 = sinf(theta); _22 = cosf(theta);

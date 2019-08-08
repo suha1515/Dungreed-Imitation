@@ -13,6 +13,8 @@ public:
 	void Render(Renderer* render);
 	void ReleaseGroup(OBJECT_TYPE type);
 
+	list<GameObject*>& GetObjectList(OBJECT_TYPE type);
+
 private:
 	void Release();
 

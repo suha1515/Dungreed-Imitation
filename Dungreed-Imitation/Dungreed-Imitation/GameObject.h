@@ -17,6 +17,9 @@ public:
 	void SetRotation(float angle);
 	void SetScale(float scale);
 
+public:
+	void Flip();
+
 
 public:
 	virtual void Initialize() = 0;

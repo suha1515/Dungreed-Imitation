@@ -122,8 +122,8 @@ void Renderer::DrawTriangleBarycentric(Vertex p1, Vertex p2, Vertex p3, BitMap *
 				Vector2 texcoord = p1.tex*w0 + p2.tex*w1 + p3.tex*w2;
 				//일단.. int와 float 사이의 연산때문에 barycentric 의 무게중심값은 소수이므로..
 				// 패딩값이 소수점 연산에의해 잘 적용이 안된다. 그래서 양끝라인이 출력이 안되는 현상 발견.. 그래서 0.1f 정도 빼줌..
-				int u = (bitmap->GetWidth())*texcoord.x;
-				int v = (bitmap->GetHeight())-(bitmap->GetHeight())*texcoord.y;
+				int u = (bitmap->GetWidth()-0.01f)*texcoord.x;
+				int v = (bitmap->GetHeight()-0.01f)-(bitmap->GetHeight()-0.01f)*texcoord.y;
 				
 				int index = (u*PIXEL_SIZE) + (v*(bitmap->GetWidth()*PIXEL_SIZE))+ (bitmap->GetPadding()*v);
 				uint32_t color = bitmap->ToUInt32(index);

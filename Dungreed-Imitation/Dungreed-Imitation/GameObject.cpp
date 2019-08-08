@@ -38,6 +38,19 @@ void GameObject::SetScale(float scale)
 	m_Scale.SetScale(scale);
 }
 
+void GameObject::Flip()
+{
+	Vertex tmpVertex[2];
+	tmpVertex[0] = m_tInfo.vertex[2];
+	tmpVertex[1] = m_tInfo.vertex[3];
+
+	m_tInfo.vertex[2] = m_tInfo.vertex[1];
+	m_tInfo.vertex[3] = m_tInfo.vertex[0];
+	m_tInfo.vertex[0] = tmpVertex[1];
+	m_tInfo.vertex[1] = tmpVertex[0];
+
+}
+
 void GameObject::SetDead(bool IsDead)
 {
 	m_bIsDead = IsDead;

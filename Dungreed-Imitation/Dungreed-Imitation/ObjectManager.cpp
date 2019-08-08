@@ -58,6 +58,11 @@ void ObjectManager::ReleaseGroup(OBJECT_TYPE type)
 {
 }
 
+list<GameObject*>& ObjectManager::GetObjectList(OBJECT_TYPE type)
+{
+	return m_ObjLst[type];
+}
+
 void ObjectManager::Release()
 {
 	for (int i = 0; i < OBJECT_END; ++i)

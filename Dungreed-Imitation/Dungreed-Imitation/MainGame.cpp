@@ -2,6 +2,7 @@
 #include "MainGame.h"
 #include "Player.h"
 #include "Mouse.h"
+#include"Weapon.h"
 
 
 MainGame::MainGame()
@@ -32,9 +33,13 @@ void MainGame::Initialize()
 	ImageManager::GetInstance()->LoadBitMap(L"..//texture//800x600.bmp",L"배경");
 	ImageManager::GetInstance()->LoadBitMap(L"..//texture//커서.bmp", L"마우스");
 	ImageManager::GetInstance()->LoadBitMap(L"..//texture//캐릭터//Idle//wake//IdleClip.bmp", L"IdleClip");
-	ImageManager::GetInstance()->LoadBitMap(L"..//texture//캐릭터//Idle//wake//Idle4.bmp", L"Idle4");
+	ImageManager::GetInstance()->LoadBitMap(L"..//texture//캐릭터//run//run.bmp", L"runClip");
+	ImageManager::GetInstance()->LoadBitMap(L"..//texture//무기//Spear_default.bmp", L"Weapon_Spear");
+	
+	SceneManager::GetInstance()->SceneChange(SCENE_TITLE);
 
-	GameObject* pGameObject = new Player;
+
+	/*GameObject* pGameObject = new Player;
 	pGameObject->SetPos(Vector2(0.f, 0.f));
 	pGameObject->Initialize();
 	ObjectManager::GetInstance()->AddObject(OBJECT_PLAYER, pGameObject);
@@ -42,20 +47,26 @@ void MainGame::Initialize()
 	pGameObject = new Mouse;
 	pGameObject->SetPos(Vector2(40.f, 40.f));
 	pGameObject->Initialize();
-	ObjectManager::GetInstance()->AddObject(OBJECT_MOUSE, pGameObject);
+	ObjectManager::GetInstance()->AddObject(OBJECT_MOUSE, pGameObject);*/
+
+	/*pGameObject = new Weapon;
+	pGameObject->SetPos(Vector2(100.f, 100.f));
+	pGameObject->Initialize();
+	ObjectManager::GetInstance()->AddObject(OBJECT_ITEM, pGameObject);*/
 }
 
 void MainGame::Update()
 {
 	KeyManager::GetInstance()->Update();
-	ObjectManager::GetInstance()->Update();
+	SceneManager::GetInstance()->Update();
+	//ObjectManager::GetInstance()->Update();
 }
 
 void MainGame::Render()
 {
 	m_render.ClearScreen();
 
-
+	SceneManager::GetInstance()->Render(&m_render);
 	//Matrix2D rotation;
 
 	//static float theta = 0.0f;
@@ -63,7 +74,7 @@ void MainGame::Render()
 
 	//rotation.SetRotation(theta);
 
-	Vertex p1(Vector2(200.f, 232.0f), Vector2(0.f, 0.f), mRGB(1.f, 0.f, 0.f));
+	/*Vertex p1(Vector2(200.f, 232.0f), Vector2(0.f, 0.f), mRGB(1.f, 0.f, 0.f));
 	Vertex p2(Vector2(200.f, 200.0f), Vector2(0.f, 1.f), mRGB(0.f, 1.f, 0.f));
 	Vertex p3(Vector2(232.f, 200.0f), Vector2(1.f, 1.f), mRGB(0.f, 0.f, 1.f));
 	Vertex p4(Vector2(232.f, 232.0f), Vector2(1.f, 0.f), mRGB(0.f, 0.f, 1.f));
@@ -76,7 +87,7 @@ void MainGame::Render()
 
 	m_render.SetVertexBuffer(buffer);
 	m_render.SetTexture(ImageManager::GetInstance()->GetBitMap(L"Idle4"));
-	m_render.DrawOnCanvas();
+	m_render.DrawOnCanvas();*/
 
 
 	//Vertex a1 = p1;
@@ -129,4 +140,5 @@ void MainGame::Release()
 	ObjectManager::GetInstance()->DestroyInstance();
 	ImageManager::GetInstance()->DestroyInstance();
 	KeyManager::GetInstance()->DestroyInstance();
+	SceneManager::GetInstance()->DestroyInstance();
 }
