@@ -1,0 +1,13 @@
+﻿  Renderer.cpp
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(72): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(138): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(140): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(151): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(152): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(273): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(275): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(286): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jbs\documents\visual studio 2015\projects\dungreed-imitation\dungreed-imitation\renderer.cpp(287): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Dungreed-Imitation.vcxproj -> C:\Users\JBS\Documents\Visual Studio 2015\Projects\Dungreed-Imitation\Debug\Dungreed-Imitation.exe
+  Dungreed-Imitation.vcxproj -> C:\Users\JBS\Documents\Visual Studio 2015\Projects\Dungreed-Imitation\Debug\Dungreed-Imitation.pdb (Full PDB)
